@@ -19,11 +19,6 @@ if which fzf > /dev/null ; then
 	bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 fi
 
-
-if which bc > /dev/null ; then
-	bindkey -s '^m' '^ubc -lq\n'
-fi
-
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
