@@ -2,6 +2,9 @@
 
 # Use lf to switch directories and bind it to ctrl-o
 if which lf > /dev/null ; then
+	if which lfub > /dev/null ; then
+		alias lf="lfub"
+	fi
 	lfcd () {
 			tmp="$(mktemp -uq)"
 			trap 'rm -f $tmp >/dev/null 2>&1' HUP INT QUIT TERM PWR EXIT
