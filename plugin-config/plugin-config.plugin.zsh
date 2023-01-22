@@ -1,9 +1,9 @@
 # Plugin Config
 
-# run neofetch
+# Run Neofetch
 fch
 
-## cod (--help autocomplete)
+# Cod (--help autocomplete)
 which cod > /dev/null && source <(cod init $$ zsh)
 
 # History-substring-search
@@ -25,6 +25,6 @@ fi
 if [ -d ${ZPLUGINDIR}/alias-tips ]; then
 	export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Tip: "  # Customize the Output
 	export ZSH_PLUGINS_ALIAS_TIPS_EXPAND=1      # Command Expansion
-	export ZSH_PLUGINS_ALIAS_TIPS_FORCE=1       # Force Alias Use
+	# export ZSH_PLUGINS_ALIAS_TIPS_FORCE=1       # Force Alias Use
 	export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES=""   # Exclude some Aliases
 fi
