@@ -13,6 +13,11 @@ if which lfub > /dev/null ; then
 	alias lf="lfub"
 fi
 
+# Change lf to lf uberzug
+if which lfcd > /dev/null ; then
+	alias cf="lfcd"
+fi
+
 # sudo not required for some system commands
 for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
 	alias $command="sudo $command"
