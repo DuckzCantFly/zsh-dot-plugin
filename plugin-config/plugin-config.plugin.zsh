@@ -1,7 +1,7 @@
 # Plugin Config
 
 # Run Neofetch
-fch
+which fch> /dev/null && fch
 
 # Cod (--help autocomplete)
 which cod > /dev/null && source <(cod init $$ zsh)
