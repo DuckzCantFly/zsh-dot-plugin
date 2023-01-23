@@ -4,7 +4,7 @@
 My personal .zshrc but in the form of a plugin.
 `.zshrc` not included.
 
-Plugin Management based on [zsh_unplugged](https://github.com/mattmc3/zsh_unplugged). 
+The [Plugin Management](https://github.com/DuckzCantFly/zsh-dot-plugin/blob/main/plugin-loader/plugin-loader.plugin.zsh) based is on [zsh_unplugged](https://github.com/mattmc3/zsh_unplugged). 
 Check out that repo for a full rundown on how the plugin management works.
 
 ## Set up
@@ -92,13 +92,13 @@ Example:
 
 ```zsh
 #...
-# Load Plugin Loader
-# source $ZPLUGINDIR/zsh-dot-plugin/plugin-loader/plugin-loader.plugin.zsh
+source $ZPLUGINDIR/zsh-dot-plugin/plugin-loader/plugin-loader.plugin.zsh
 
 # Autocompile Plugins
 ZPLUGSPEED="true"
 
 # Load Config
+plugins=(
 #...
 ```
 Sad but with this option you'll have a whopping 21 lines in your config. 
@@ -111,7 +111,7 @@ Update all plugins with the `plugin-update` function.
 Recompile all plugins to byte code with the `plugin-compile` function.
 This is usefull if you make changes to your config. I recommend doing this on first launch.
 
-By sourcing the "shell" plugin you can run the `cfz` alias open this repo in your `$EDITOR`.
+By sourcing the [shell](https://github.com/DuckzCantFly/zsh-dot-plugin/blob/main/shell/shell.plugin.zsh) plugin you can run the `cfz` alias open this repo in your `$EDITOR`.
 
 ## Full Example .zshrc
 
