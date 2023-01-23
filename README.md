@@ -40,7 +40,7 @@ plugins=(
 
 There you have it a zsh config in 18 lines!
 
-But Thought this would be 21? That's including the [ZSHPLUGSPEED](#Config options) option mentioned in the config section.
+But Thought this would be 21? That's including the [ZSHPLUGSPEED](###Config options) option mentioned in the config section.
 
 ### Choosie Load
 You also more explicitly load plugins like this:
