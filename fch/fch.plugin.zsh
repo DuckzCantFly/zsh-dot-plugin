@@ -53,6 +53,7 @@ function _fch-lines(){
 }
 
 # Output & Logos
+# check alt-logo.txt for more logos and logos and line versions
 function _fch-output-fch(){
 	case "${sys_distro_id}" in
 		"Arch")
