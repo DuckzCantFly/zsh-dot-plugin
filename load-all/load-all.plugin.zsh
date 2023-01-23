@@ -2,18 +2,18 @@
 
 plugins=(
 	## User Config
-	zsh-config-as-plugin/general
-	zsh-config-as-plugin/general/history
-	zsh-config-as-plugin/general/tab-complete
-	zsh-config-as-plugin/general/vi-mode
-	zsh-config-as-plugin/general/control-keys
-	zsh-config-as-plugin/shell
-	zsh-config-as-plugin/general/user-settings
-	zsh-config-as-plugin/fch
+	zsh-dot-plugin/general
+	zsh-dot-plugin/general/history
+	zsh-dot-plugin/general/tab-complete
+	zsh-dot-plugin/general/vi-mode
+	zsh-dot-plugin/general/control-keys
+	zsh-dot-plugin/shell
+	zsh-dot-plugin/general/user-settings
+	zsh-dot-plugin/fch
 	## Plugins Install & Load
-	zsh-config-as-plugin/plugins
+	zsh-dot-plugin/plugins
 	## Plugin Config
-	zsh-config-as-plugin/plugins/plugin-config
+	zsh-dot-plugin/plugins/plugin-config
 	## Plugins Install & Load
-	zsh-config-as-plugin/plugins/plugin-load
+	zsh-dot-plugin/plugins/plugin-load
 ) ; plugin-source ${plugins}
