@@ -3,7 +3,7 @@ autoload -U colors && colors	2>/dev/null # Load colors
 
 # Grab Distro ID
 if lsb_release 1> /dev/null 2>&1 ; then
-	export SYS_DISTRO_ID="$(lsb_release -a | grep "-e Distributor ID:" | cut -d ':' -f2 | tr -d '[:space:]')"
+	export SYS_DISTRO_ID="$(lsb_release -a | grep -e "Distributor ID:" | cut -d ':' -f2 | tr -d '[:space:]')"
 elif ls -U /etc/*release 1> /dev/null 2>&1 ; then
 	export SYS_DISTRO_ID="$(cat /etc/*release | grep DISTRIB_ID | cut -d '=' -f2 | tr -d '[:space:]')"
 elif ls -U /etc/issue* 1> /dev/null 2>&1 ; then

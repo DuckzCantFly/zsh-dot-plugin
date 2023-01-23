@@ -129,7 +129,7 @@ function _fch-sys-distro-id(){
 	if [ -n "${SYS_DISTRO_ID}" ] ; then
 		sys_distro_id=${SYS_DISTRO_ID}
 	elif lsb_release 1> /dev/null 2>&1 ; then
-		sys_distro_id="$(lsb_release -a | grep "-e Distributor ID:" | cut -d ':' -f2 | tr -d '[:space:]')"
+		sys_distro_id="$(lsb_release -a | grep -e "Distributor ID:" | cut -d ':' -f2 | tr -d '[:space:]')"
 	elif ls -U /etc/*release 1> /dev/null 2>&1 ; then
 		sys_distro_id="$(cat /etc/*release | grep DISTRIB_ID | cut -d '=' -f2 | tr -d '[:space:]')"
 	elif ls -U /etc/issue* 1> /dev/null 2>&1 ; then
