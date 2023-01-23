@@ -8,7 +8,7 @@ plugins=(
 	zsh-config-as-plugin/general/vi-mode
 	zsh-config-as-plugin/general/control-keys
 	zsh-config-as-plugin/shell
-	zsh-config-as-plugin/user-settings
+	zsh-config-as-plugin/general/user-settings
 	zsh-config-as-plugin/fch
 	## Plugins Install & Load
 	zsh-config-as-plugin/plugins
