@@ -40,7 +40,7 @@ plugins=(
 
 There you have it a zsh config in 18 lines!
 
-But Thought this would be 21? That's including the [ZSHPLUGSPEED](#speed-Config-Options) option mentioned in the config section.
+But Thought this would be 21? That's including the [ZSHPLUGSPEED](#Config-Options) option mentioned in the config section.
 
 ### Choosie Load
 You also more explicitly load plugins like this:
@@ -84,7 +84,7 @@ A little longer but if you want to manage your plugins outdide of [plugins/plugi
 ## Configuration
 Git fork it, clone it, edit all the files to your preference and have a short organized config.
 
-### :speed: Config Options
+### Config Options
 On a serious note there is an option for the plugin loader. 
 You can set `zplugspeed="true"` to speed up your plugin loading.
 
