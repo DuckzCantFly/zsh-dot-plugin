@@ -79,7 +79,7 @@ plugins=(
 	zsh-autopair
 ) ; plugin-source ${plugins}
 ```
-A little longer but if you want to manage your plugins outdide of [plugins/plugins.plugin.zsh](https://github.com/DuckzCantFly/zsh-dot-plugin/blob/main/plugins/plugins.plugin.zsh) .
+A little longer but if you want to manage your plugins outdide of [plugins/plugins.plugin.zsh](https://github.com/DuckzCantFly/zsh-dot-plugin/blob/main/plugins/plugins.plugin.zsh) its a good option.
 
 ## Configuration
 Git fork it, clone it, edit all the files to your preference and have a short organized config.
