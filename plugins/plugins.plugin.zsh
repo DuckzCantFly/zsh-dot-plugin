@@ -2,7 +2,7 @@
 
 # Plugins To Download
 repos=(
-	git@github.com:
+	https://github.com/
 	romkatv/zsh-defer
 	romkatv/zsh-bench
 	zsh-users/zsh-completions
