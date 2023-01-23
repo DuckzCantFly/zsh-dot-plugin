@@ -122,7 +122,7 @@ By sourcing the [shell](https://github.com/DuckzCantFly/zsh-dot-plugin/blob/main
 ZPLUGINDIR=${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/plugins
 
 # Boot Strap
-if [ ! -d ${ZPLUGINDIR}/zsh-config-as-plugin ]; then
+if [ ! -d ${ZPLUGINDIR}/zsh-dot-plugin ]; then
 	mkdir -p "${ZPLUGINDIR}" 2> /dev/null
 	git clone --quiet "git@github.com:DuckzCantFly/zsh-dot-plugin" "${ZPLUGINDIR}/zsh-dot-plugin"
 fi
