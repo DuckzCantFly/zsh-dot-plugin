@@ -19,13 +19,13 @@ Add these lines to the start of your .zshrc replacing repo lines with your own f
 ZPLUGINDIR=${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/plugins
 
 # Boot Strap
-if [ ! -d ${ZPLUGINDIR}/zsh-config-as-plugin ]; then
+if [ ! -d ${ZPLUGINDIR}/zsh-dot-plugin ]; then
 	mkdir -p "${ZPLUGINDIR}" 2> /dev/null
-	git clone --quiet "git@github.com:DuckzCantFly/zsh-config-as-plugin" "${ZPLUGINDIR}/zsh-config-as-plugin"
+	git clone --quiet "git@github.com:DuckzCantFly/zsh-dot-plugin" "${ZPLUGINDIR}/zsh-dot-plugin"
 fi
 
 # Load Plugin Loader
-source $ZPLUGINDIR/zsh-config-as-plugin/plugin-loader/plugin-loader.plugin.zsh
+source $ZPLUGINDIR/zsh-dot-plugin/plugin-loader/plugin-loader.plugin.zsh
 ```
 
 ### Minimal Load
@@ -38,9 +38,9 @@ plugins=(
 ) ; plugin-source ${plugins}
 ```
 
-There you have it a zsh confit in 18 lines!
+There you have it a zsh config in 18 lines!
 
-But Thought this would be 21? That's including the [ZSHPLUGSPEED](### Config options) option mentioned in the config section.
+But Thought this would be 21? That's including the [ZSHPLUGSPEED](# Config options) option mentioned in the config section.
 
 ### Choosie Load
 You also more explicitly load plugins like this:
@@ -79,7 +79,7 @@ plugins=(
 	zsh-autopair
 ) ; plugin-source ${plugins}
 ```
-A little longer but if you want to manage your plugins more its a good option.
+A little longer but if you want to manage your plugins outdide of [plugins/plugins.plugin.zsh](https://github.com/DuckzCantFly/zsh-dot-plugin/blob/main/plugins/plugins.plugin.zsh) .
 
 ## Configuration
 Git fork it, clone it, edit all the files to your preference and have a short organized config.
