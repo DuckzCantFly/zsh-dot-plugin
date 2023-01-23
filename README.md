@@ -40,7 +40,7 @@ plugins=(
 
 There you have it a zsh config in 18 lines!
 
-But Thought this would be 21? That's including the [ZSHPLUGSPEED](# Config options) option mentioned in the config section.
+But Thought this would be 21? That's including the [ZSHPLUGSPEED](#Config-Options) option mentioned in the config section.
 
 ### Choosie Load
 You also more explicitly load plugins like this:
@@ -79,12 +79,12 @@ plugins=(
 	zsh-autopair
 ) ; plugin-source ${plugins}
 ```
-A little longer but if you want to manage your plugins outdide of [plugins/plugins.plugin.zsh](https://github.com/DuckzCantFly/zsh-dot-plugin/blob/main/plugins/plugins.plugin.zsh) .
+A little longer but if you want to manage your plugins outdide of [plugins/plugins.plugin.zsh](https://github.com/DuckzCantFly/zsh-dot-plugin/blob/main/plugins/plugins.plugin.zsh) its a good option.
 
 ## Configuration
 Git fork it, clone it, edit all the files to your preference and have a short organized config.
 
-### Config options
+### Config Options
 On a serious note there is an option for the plugin loader. 
 You can set `zplugspeed="true"` to speed up your plugin loading.
 
