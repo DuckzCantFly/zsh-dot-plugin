@@ -1,11 +1,5 @@
-### Zsh-shoelace ###
+### plugin-loader ###
 # A bootstrap plugin manager in less then 100 lines based on mattmc3/zsh_unplugged.
-
-# Set plugin dir if none given
-if [ -z "${ZPLUGINDIR}" ] ; then
-  ZPLUGINDIR="${ZDOTDIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/zsh}/plugins"
-	mkdir -p "${ZPLUGINDIR}" 2> /dev/null
-fi
 
 # Dev Functions
 ## Update Checker
