@@ -1,7 +1,7 @@
 plugins=(
-	zsh-config-as-plugin/shell/functionrc
-	zsh-config-as-plugin/shell/shortcutrc
-	zsh-config-as-plugin/shell/aliasrc
+	zsh-dot-plugin/shell/functionrc
+	zsh-dot-plugin/shell/shortcutrc
+	zsh-dot-plugin/shell/aliasrc
 ) ; plugin-source ${plugins}
 
 function linkshellrcs(){

@@ -21,7 +21,7 @@ alias \
 	cfa="$EDITOR $XDG_CONFIG_HOME/zsh/plugins/zsh-config-as-plugin/shell/aliasrc/aliasrc.plugin.zsh" \
 	cfs="$EDITOR $XDG_CONFIG_HOME/zsh/plugins/zsh-config-as-plugin/shell/shortcutrc/shortcutrc.plugin.zsh" \
 	cfkb="cd /home/dwm/qmk_firmware/keyboards/preonic/keymaps/duckzcantfly && $EDITOR keymap.c" \
-	cfzp="$EDITOR $ZPLUGINDIR/zsh-config-as-plugin" \
+	cfzp="$EDITOR $ZPLUGINDIR/zsh-dot-plugin" \
 	cfc="$EDITOR $XDG_DATA_HOME/calcurse/apts" \
 	cfv="$EDITOR $XDG_CONFIG_HOME/nvim" \
 	cfm="$EDITOR $XDG_CONFIG_HOME/mutt/muttrc" \
