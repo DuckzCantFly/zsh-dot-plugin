@@ -6,15 +6,12 @@
 function _plugin-update-check {
 	local d u gitlcl gitrmt
 	for d in ${ZPLUGINDIR}/*/.git(/); do
-	(
 		gitlcl=$(git -C "${d:h}" rev-parse HEAD)
 		gitrmt=$(git -C "${d:h}" ls-remote origin HEAD | awk '{ print $1 }')
 		if [ "${gitlcl}" != "${gitrmt}" ] ; then
-			u="${u} ${d:h}"
+			export u="${u} ${d:h}"
 		fi
-	) &
 	done
-	wait
 	echo ${u}
 }
 
