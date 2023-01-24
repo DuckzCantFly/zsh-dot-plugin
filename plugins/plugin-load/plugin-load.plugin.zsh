@@ -10,6 +10,7 @@ plugins=(
 	zsh-autopair
 	alias-tips
 	zsh-system-clipboard
+	theprimeagen/vim-be-good
 ) ; plugin-source ${plugins}
 
 # Load Zsh Bench
