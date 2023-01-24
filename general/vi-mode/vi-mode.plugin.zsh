@@ -1,10 +1,10 @@
 # VI Mode setup
 
-## Basics
+# Basics
 bindkey -v
 export KEYTIMEOUT=1
 
-## Use vim keys in tab complete menu:
+# Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
