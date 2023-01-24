@@ -1,7 +1,7 @@
 ### Basic Tab Complete ###
 
 fpath=(${ZDOTDIR}/completion $fpath)
-autoload -U compinit ; compinit
+autoload -U compinit ; compinit -i
 setopt MENU_COMPLETE
 zmodload zsh/complist
 eval "$(dircolors)"
