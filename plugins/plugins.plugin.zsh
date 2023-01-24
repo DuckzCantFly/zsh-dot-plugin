@@ -12,5 +12,4 @@ repos=(
 	hlissner/zsh-autopair
 	djui/alias-tips
 	kutsan/zsh-system-clipboard
-	theprimeagen/vim-be-good 
 ) ; plugin-clone ${repos}
