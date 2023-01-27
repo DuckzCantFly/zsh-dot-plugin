@@ -1,6 +1,6 @@
 # Use neovim for vim if present.
 if [ -x "$(command -v nvim)" ] ; then
-	alias vim="nvim" vimdiff="nvim -d"
+	alias vim="nvim" vi="nvim" vimdiff="nvim -d"
 fi
 
 # Use $XINITRC variable if file exists.
@@ -105,16 +105,19 @@ alias \
 		tpb="pirate-get" \
 
 
-	#bluetooth
+## Bluetooth-CTL
+if which bluetoothctl > /dev/null ; then
 	alias \
 		bC="bluetoothctl" \
 		bCD="bluetoothctl devices" \
 		bCC="bluetoothctl connect" \
 		bCPN="bluetoothctl power on" \
 		bCPF="bluetoothctl power off" \
-		bCS="bluetoothctl scan on" \
+		bCS="bluetoothctl scan on"
+fi
 
-	#git
+## Git
+if which git > /dev/null ; then
 	alias \
 		g='git' \
 		gC='git commit' \
@@ -124,44 +127,50 @@ alias \
 		gST='git stash' \
 		gCL='git clone "$(xclip -selection clipboard -o)"' \
 		gPL='git pull' \
-		gPU='git push' \
+		gPU='git push'
+fi
 
-	#Trash-cli
+## Trash-cli
+if which trash-put > /dev/null ; then
 	alias \
 		tP="trash-put" \
 		tI="lf $XDG_DATA_HOME/Trash" \
 		tR="trash-remove" \
 		tL="trash-list" \
 		tE="trash-empty" \
-		tU="trash-restore" \
+		tU="trash-restore"
+fi
 
-	# system ctl
+## System-D
+if which systemctl > /dev/null ; then
 	alias \
-		S='s systemctl' \
-		SE='S enable' \
-		SD='S disable' \
-		SS='S start' \
+		S='sudo systemctl' \
+		SE='sudo systemctl enable' \
+		SD='sudo systemctl disable' \
+		SS='sudo systemctl start'
+fi
 
-	# package manager
-	alias \
-		uA="topgrade"
+## Package Management
+if which topgrade > /dev/null ; then
+	alias uA="topgrade"
+fi
 
-	case "$SYS_DISTRO_ID" in
-		"Arch")
-			alias p="paru --bottomup"
-			_archpkgm
-			;;
-		"ManjaroLinux")
-			alias p="yay "
-			_archpkgm
-			;;
-		"Debian"|"Ubuntu")
-			_debpkgm
-			;;
-		*)
-	esac
+case "$SYS_DISTRO_ID" in
+	"Arch")
+		alias p="paru --bottomup"
+		_archpkgm
+		;;
+	"ManjaroLinux")
+		alias p="yay "
+		_archpkgm
+		;;
+	"Debian"|"Ubuntu")
+		_debpkgm
+		;;
+	*)
+esac
 
-# Extention map
+# Extension map
 alias -s \
 	jar="java -jar"\
 	pdf="zathura"\
