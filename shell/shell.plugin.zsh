@@ -1,13 +1,11 @@
 ### Shell ###
 # Load Plugins
-if [ -x "$(command -v plugin-source)" ] ; then
-	plugins=(
-		zsh-dot-plugin/shell/functionrc
-		zsh-dot-plugin/shell/optrc
-		zsh-dot-plugin/shell/aliasrc
-		zsh-dot-plugin/shell/shortcutrc
-	) ; plugin-source ${plugins}
-fi
+plugins=(
+	zsh-dot-plugin/shell/functionrc
+	zsh-dot-plugin/shell/optrc
+	zsh-dot-plugin/shell/aliasrc
+	zsh-dot-plugin/shell/shortcutrc
+) ; plugin-source ${plugins}
 
 # Link shell RCS
 function linkshellrcs(){
