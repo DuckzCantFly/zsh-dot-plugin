@@ -1,9 +1,15 @@
-plugins=(
-	zsh-dot-plugin/shell/functionrc
-	zsh-dot-plugin/shell/shortcutrc
-	zsh-dot-plugin/shell/aliasrc
-) ; plugin-source ${plugins}
+### Shell ###
+# Load Plugins
+if [ -x "$(command -v plugin-source)" ] ; then
+	plugins=(
+		zsh-dot-plugin/shell/functionrc
+		zsh-dot-plugin/shell/optrc
+		zsh-dot-plugin/shell/aliasrc
+		zsh-dot-plugin/shell/shortcutrc
+	) ; plugin-source ${plugins}
+fi
 
+# Link shell RCS
 function linkshellrcs(){
 	local shellrcdir shellrc plugshellrc
 	local plugshelldir="${ZPLUGINDIR}/zsh-config-as-plugin/shell/"

@@ -1,20 +1,8 @@
 ### Control Keys ##
 
 # Use lf to switch directories and bind it to ctrl-o
-if which lf > /dev/null ; then
-	if which lfub > /dev/null ; then
-		alias lf="lfub"
-	fi
-	lfcd () {
-			tmp="$(mktemp -uq)"
-			trap 'rm -f $tmp >/dev/null 2>&1' HUP INT QUIT TERM PWR EXIT
-			lf -last-dir-path="$tmp" "$@"
-			if [ -f "$tmp" ]; then
-					dir="$(cat "$tmp")"
-					[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-			fi
-	}
-	bindkey -s '^o' '^ulfcd\n'
+if which cf > /dev/null ; then
+	bindkey -s '^o' '^ucf\n'
 fi
 
 # Use fzf to find files and bind it to ctrl-o

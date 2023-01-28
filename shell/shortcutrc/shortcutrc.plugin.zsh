@@ -1,11 +1,13 @@
-### shortcutrc ###
+### Shortcut RC ###
 
+# Quick CD
 alias \
 	h="cd $HOME/ && ls -a" \
-	c="calcurse" \
 	d="cf $HOME/doc" \
 	n="$EDITOR $MGH/notes/index.md" \
 	D="cf $HOME/dl" \
+	s="cf $HOME/doc/school" \
+	b="cf $HOME/doc/books" \
 	mu="cf $HOME/doc/media/mu" \
 	img="cf $HOME/doc/media/img" \
 	vid="cf $HOME/doc/media/vid" \
@@ -13,10 +15,10 @@ alias \
 	mgh="cf $MGH" \
 	gp="cf $GOPATH" \
 	lc="cf $HOME/.local" \
-	sc="cf $HOME/.local/bin-a" \
-	mn="cd /mnt && ls -a" \
-	bf="$EDITOR $XDG_CONFIG_HOME/files" \
-	bd="$EDITOR $XDG_CONFIG_HOME/directories" \
+	ltn="cf $HOME/doc/media/books/ln" \
+
+# Configuration
+alias \
 	bw="$EDITOR $XDG_CONFIG_HOME/bookmarks" \
 	cfa="$EDITOR $XDG_CONFIG_HOME/zsh/plugins/zsh-config-as-plugin/shell/aliasrc/aliasrc.plugin.zsh" \
 	cfs="$EDITOR $XDG_CONFIG_HOME/zsh/plugins/zsh-config-as-plugin/shell/shortcutrc/shortcutrc.plugin.zsh" \
@@ -33,7 +35,3 @@ alias \
 	cfdc="dconf dump / >$XDG_CONFIG_HOME/dconf/user.conf \
 		&& $EDITOR -c 'setf dosini' $XDG_CONFIG_HOME/dconf/user.conf \
 		&& dconf load / <$XDG_CONFIG_HOME/dconf/user.conf" \
-	s="cf $HOME/doc/school" \
-	ltn="cf $HOME/doc/media/books/ln" \
-	b="cf $HOME/doc/books" \
-	gop="cd $XDG_DATA_HOME/go" \
