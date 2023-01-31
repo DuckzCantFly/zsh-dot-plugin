@@ -1,5 +1,9 @@
 ### Load All Configuration as Plugins ###
 
+# Autocompile Plugins
+ZPLUGSPEED="true"
+
+# Load everything
 plugins=(
 	## User Config
 	zsh-dot-plugin/general
