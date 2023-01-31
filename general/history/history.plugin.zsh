@@ -1,6 +1,8 @@
-## History in cache directory:
+### History Config ###
 
-### Setup HISTFILE
+# History in cache directory:
+
+## Setup HISTFILE
 ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/"
 HISTFILE=${ZSH_CACHE_DIR}/history
 
@@ -9,7 +11,7 @@ if [ ! -e "${HISTFILE}" ] ; then
 		&& touch ${HISTFILE}
 fi
 
-### History config
+##History config
 HISTSIZE=10000000
 SAVEHIST=10000000
 

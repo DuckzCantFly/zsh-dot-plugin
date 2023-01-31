@@ -1,10 +1,14 @@
-# Plugin Config
+### Plugin Config ###
 
 # Run Neofetch
-which fch> /dev/null && fch
+if [ -n "$(command -v fch)" ] ; then
+	fch
+fi
 
 # Cod (--help autocomplete)
-which cod > /dev/null && source <(cod init $$ zsh)
+if [ -x "$(command -v cod)" ] ; then
+	source <(cod init $$ zsh)
+fi
 
 # History-substring-search
 if [ -d ${ZPLUGINDIR}//zsh-history-substring-search ]; then

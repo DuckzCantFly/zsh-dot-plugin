@@ -1,4 +1,4 @@
-### Alias ###
+### Alias RC ###
 
 # Make SUDO not required for some system commands
 for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
@@ -15,15 +15,19 @@ alias \
 	mkd="mkdir -pv" \
 	info="info --vi-keys" \
 
-## Colorize commands when possible.
+# Colorize commands when possible.
 alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ip="ip -color=auto"
 
-## LS
+# LS / EXA
+if [ -x "$(command -v exa)" ] ; then
+	alias ls="exa --icons -hn --color=auto --group-directories-first"
+else
+	alias ls="ls -h --color=auto --group-directories-first"
+fi
 alias \
-	ls="ls -hn --color=auto --group-directories-first" \
 	la="ls -lah" \
 	ll="ls -lh" \
 	lg="la | grep" \

@@ -1,4 +1,4 @@
-### Control Keys ##
+### Control Keys ###
 
 # Use lf to switch directories and bind it to ctrl-o
 if which cf > /dev/null ; then

@@ -1,4 +1,4 @@
-### Optional Program Alias ###
+### Optional Program Alias RC ###
 
 # Use $XINITRC variable if file exists.
 if [ -f "$XINITRC" ] ; then
@@ -23,11 +23,6 @@ if [ -x "$(command -v lf)" ] ; then
 	}
 else
 	cf(){ cd $@ && ls }
-fi
-
-# EXA
-if [ -x "$(command -v exa)" ] ; then
-	alias ls="exa --icons"
 fi
 
 # fch
@@ -76,7 +71,7 @@ if [ -x "$(command -v nvim)" ] ; then
 fi
 
 # MPC
-if [ -x "$(command -v pirate-get)" ] ; then
+if [ -x "$(command -v mpc)" ] ; then
 	alias \
 		mp="mpc clear \
 			&& mpc load default \

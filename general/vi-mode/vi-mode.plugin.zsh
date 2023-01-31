@@ -1,4 +1,4 @@
-# VI Mode setup
+### VI Mode setup ###
 
 # Basics
 bindkey -v

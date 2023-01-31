@@ -1,4 +1,4 @@
-### plugin-loader ###
+### Plugin Loader ###
 # A bootstrap plugin manager in less then 100 lines based on mattmc3/zsh_unplugged.
 
 # Dev Functions
