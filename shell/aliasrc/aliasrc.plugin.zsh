@@ -36,7 +36,6 @@ alias \
 # Shorten up Commands
 alias \
 	s="sudo" \
-	neo="clear && fch" \
 	dus="du -hs * | sort -h" \
 	ka="killall" \
 	sdn="shutdown -h now" \
@@ -59,11 +58,3 @@ alias \
 alias \
 	szrc="source ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshrc \
 		; source $HOME/.profile" \
-
-# Extension Mappings
-alias -s \
-	jar="java -jar"\
-	pdf="zathura"\
-	{mkv,mp4,wedm,avi,mov}=l\
-	gif="mpv --loop"\
-	{png,jpg,jpeg}=sxiv\

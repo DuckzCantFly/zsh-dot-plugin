@@ -26,7 +26,7 @@ else
 fi
 
 # fch
-if [ -x "$(command -v fch)" ] ; then
+if [ -n "$(command -v fch)" ] ; then
 	alias neo="clear && fch"
 fi
 
@@ -38,6 +38,7 @@ fi
 # Zathura
 if [ -x "$(command -v zathura)" ] ; then
 	alias z="zathura"
+	alias -s pdf="zathura"
 fi
 
 # FFMPEG
@@ -48,6 +49,7 @@ fi
 # Linkhandler
 if [ -x "$(command -v linkhandler)" ] ; then
 	alias l="linkhandler"
+	alias -s {mkv,mp4,wedm,avi,mov}=linkhandler
 fi
 
 # Youtube-DL
@@ -89,6 +91,7 @@ fi
 # MPV
 if [ -x "$(command -v mpv)" ] ; then
 	alias mpvcp='setsid mpv -quiet "$(oclp)"'
+	alias -s gif="mpv --loop"
 fi
 
 # BAT
@@ -114,6 +117,7 @@ fi
 # Sxiv & Nsxiv
 if [ -x "$(command -v sxiv)" ] ; then
 	alias ii="sxiv" imv="sxiv -frbt *"
+	alias -s  {png,jpg,jpeg}=sxiv
 fi
 
 # Gotop
@@ -124,6 +128,11 @@ fi
 # Se 
 if [ -x "$(command -v se)" ] ; then
 	alias sec="se c" seb="se b" ses="se s"
+fi
+
+# Java
+if [ -x "$(command -v java)" ] ; then
+	alias -s jar="java -jar"
 fi
 
 # Bluetooth-CTL
