@@ -1,5 +1,8 @@
 ### Control Keys ###
 
+# Set <CTRL>-n to "mkdir"
+bindkey -s '^n' "mkdir \'\'^[[D"
+
 # Use lf to switch directories and bind it to ctrl-o
 if which cf > /dev/null ; then
 	bindkey -s '^o' '^ucf\n'
