@@ -171,6 +171,45 @@ if [ -x "$(command -v trash-put)" ] ; then
 		tU="trash-restore"
 fi
 
+# Convert sites into text and open therm in VIM
+if [ -x "$(command -v readable)" ] ; then
+	mkwdoc(){
+		local CPURL=$(xclip -selection clipboard -o)
+		readable -l force -p text-content "${CPURL}" | nvim
+		readable -l force -p html-content "${CPURL}" | nvim
+	}
+fi
+
+# Enable VPN
+if [ -x "$(command -v nmcli)" ] ; then
+	hme(){
+		local VPNN MFNP_STATE
+
+		if [ -n "${1}" ] ; then
+			VPNN="${1}"
+		else
+			VPNN="MfNp"
+		fi
+
+		MFNP_STATE=$(
+			nmcli connection show MfNp \
+			| grep VPN.VPN-STATE \
+			| rev | cut -d ' ' -f1 | rev
+		)
+
+		if [ "$MFNP_STATE" != "connected" ] ; then
+			nmcli connection up $VPNN
+		else
+			nmcli connection down $VPNN
+		fi
+	}
+fi
+
+# Open GO Docs in Pretty Way
+if [ -x "$(command -v go)" ] ; then
+	gd(){ go doc $@ | lim }
+fi
+
 # System-D
 if [ -x "$(command -v systemctl)" ] ; then
 	alias \
