@@ -2,6 +2,7 @@
 
 # Autocompile Plugins
 ZPLUGSPEED="true"
+ZSH_DOT_CONFIG_CORRECTION="short"
 
 # Load everything
 plugins=(
@@ -14,6 +15,7 @@ plugins=(
 	zsh-dot-plugin/general/vi-mode
 	zsh-dot-plugin/general/control-keys
 	zsh-dot-plugin/general/user-settings
+	zsh-dot-plugin/general/correction
 	## Plugins Install & Load
 	zsh-dot-plugin/plugins
 	## Plugin Config
