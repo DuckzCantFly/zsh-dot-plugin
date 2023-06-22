@@ -11,7 +11,7 @@ if [ -x "$(command -v cod)" ] ; then
 fi
 
 # History-substring-search
-if [ -d ${ZPLUGINDIR}//zsh-history-substring-search ]; then
+if [ -d ${ZPLUGINDIR}/zsh-history-substring-search ]; then
 	bindkey '^[[A' history-substring-search-up
 	bindkey '^[[B' history-substring-search-down
 	bindkey -M vicmd 'k' history-substring-search-up
