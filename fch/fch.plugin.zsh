@@ -128,12 +128,23 @@ function _fch-packages(){
 function _fch-sys-distro-id(){
 	if [ -n "${SYS_DISTRO_ID}" ] ; then
 		sys_distro_id=${SYS_DISTRO_ID}
-	elif lsb_release 1> /dev/null 2>&1 ; then
+		return
+	elif [ -x "$(command -v lsb_release)" ] ; then
 		sys_distro_id="$(lsb_release -a | grep -e "Distributor ID:" | cut -d ':' -f2 | tr -d '[:space:]')"
-	elif ls -U /etc/*release 1> /dev/null 2>&1 ; then
-		sys_distro_id="$(cat /etc/*release | grep DISTRIB_ID | cut -d '=' -f2 | tr -d '[:space:]')"
-	elif ls -U /etc/issue* 1> /dev/null 2>&1 ; then
-		sys_distro_id="$(cat /etc/issue* | cut -d ' ' -f1 | tr -d '[:space:]')"
+		return
+	elif if ls -U /etc/*release 1>& /dev/null 2>&1 ;then
+			sys_distro_id="$(cat /etc/*release | grep DISTRIB_ID | cut -d '=' -f2 | tr -d '[:space:]')"
+		else 
+			[ 1 = 2 ]
+		fi ; [ -n "${sys_distro_id}" ]
+	then ; return
+	elif 
+		if ls -U /etc/issue* 1>& /dev/null ; then
+			sys_distro_id="$(cat /etc/issue* | cut -d ' ' -f1 | tr -d '[:space:]')"
+		else
+			[ 1 = 2 ]
+		fi ; [ -n "${sys_distro_id}" ]
+	then ; return
 	else
 		sys_distro_id="other"
 	fi
