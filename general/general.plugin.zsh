@@ -30,10 +30,6 @@ if [ -z "${ZDOTDIR}" ] ; then
 	mkdir -p "${ZDOTDIR}" 2> /dev/null
 fi
 
-#Prompt
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]
-[%{$reset_color%}$%b "
-
 # Basics
 setopt autocd		            # Automatically cd into typed directory.
 setopt auto_pushd	          # Automatically adds cd to stack.

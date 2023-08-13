@@ -8,6 +8,7 @@ ZSH_DOT_CONFIG_CORRECTION="short"
 plugins=(
 	## User Config
 	zsh-dot-plugin/general
+	zsh-dot-plugin/general/prompt
 	zsh-dot-plugin/fch
 	zsh-dot-plugin/shell
 	zsh-dot-plugin/general/history
