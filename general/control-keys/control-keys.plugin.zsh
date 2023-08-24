@@ -4,12 +4,12 @@
 bindkey -s '^n' "mkdir \'\'^[[D"
 
 # Use lf to switch directories and bind it to ctrl-o
-if which cf > /dev/null ; then
+if [ -x "$(command -v cf)" ] ; then
 	bindkey -s '^o' '^ucf\n'
 fi
 
 # Use fzf to find files and bind it to ctrl-o
-if which fzf > /dev/null ; then
+if [ -x "$(command -v fzf)" ] ; then
 	bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 fi
 

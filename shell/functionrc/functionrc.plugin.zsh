@@ -2,30 +2,66 @@
 
 # Package Managment
 ## Debian Package Managment
-_debpkgm(){
+_aptpkgm(){
+	if [ -x "$(command -v apt)" ] ; then
+		alias pkm="apt"
+	else
+		alias pkm="apt-get"
+	fi
+
 	alias \
-		p='apt search' \
-		pI='apt install' \
-		pIF='apt info' \
+		p='pkm search' \
+		pI='sudo pkm install' \
+		pIF='pkm info' \
 		pL='apt-mark showmanual | vim' \
-		pLA='apt list --installed | vim' \
-		pR='apt remove' \
-		pC='apt autoremove' \
-		pU='apt update && apt upgrade' \
-		u='apt update && apt upgarde' \
+		pLA='pkm list --installed | vim' \
+		pR='sudo pkm remove' \
+		pC='sudo pkm autoremove' \
+		pU='sudo pkm update && pkm upgrade' \
+		u='pU' 
 }
 
-## Arch Package Managment
-_archpkgm(){
+## Debian Package Managment
+_dnfpkgm(){
+	if [ -x "$(command -v dnf)" ] ; then
+		alias pkm="dnf"
+	else
+		alias pkm="yum"
+	fi
+
 	alias \
-		pR="p -Rns"\
-		pI="p -S --noconfirm"\
-		pIN="p -S --noconfirm --needed"\
-		pS="p -Ss"\
-		pL="p -Qe --info | grep -E 'Name            :|Description     :|Provides        :|Depends On      :|Required By     :|^$' | vim"\
-		pLA="p -Q --info | vim"\
-		pC="p -c"\
-		pU="p -Syu --noconfirm"\
+		p='pkm search' \
+		pI='pkm dnf install' \
+		pIF='pkm info' \
+		pL='pkm list | vim' \
+		pLA='pkm info | vim' \
+		pR='pkm dnf remove' \
+		pC='sudo pkm autoremove' \
+		pU='sudo pkm update' 
+}
+
+## Arch Package Mhanagment
+_pacmanpkgm(){
+	if [ -x "$(command -v paru)" ] ; then
+		alias p="paru" \
+					pkm="paru"
+	elif [ -x "$(command -v yay)" ] ; then
+		alias p="yay" \
+					pkm="yay"
+	else
+		alias p="pacman -Ss" \
+					pkm="pacman"
+	fi
+
+	alias \
+		pR="pkm -Rns"\
+		pI="pkm -S --noconfirm"\
+		pIN="pkm -S --noconfirm --needed"\
+		pS="pkm -Ss"\
+		pL="pkm -Qe --info | grep -E 'Name            :|Description     :|Provides        :|Depends On      :|Required By     :|^$' | vim"\
+		pLA="pkm -Q --info | vim"\
+		pC="pkm -c"\
+		pU="pkm -Syu --noconfirm"\
 
 	eval '
 		### Open URL "for Arch package"
@@ -52,7 +88,7 @@ _archpkgm(){
 			fi
 
 			if [ -n "${ARGS}" ] ; then
-				p -Qi ${ARGS} || p -Si ${ARGS}
+				pkm -Qi ${ARGS} || pkm -Si ${ARGS}
 			fi
 		}
 	'

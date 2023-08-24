@@ -224,17 +224,15 @@ if [ -x "$(command -v topgrade)" ] ; then
 	alias uA="topgrade"
 fi
 
-case "$SYS_DISTRO_ID" in
-	"Arch")
-		alias p="paru --bottomup"
-		_archpkgm
-		;;
-	"ManjaroLinux")
-		alias p="yay "
-		_archpkgm
+case "$LOCAL_SYS_DISTRO_ID" in
+	"Arch"|"arch"|"ManjaroLinux")
+		_pacmanpkgm
 		;;
 	"Debian"|"Ubuntu")
-		_debpkgm
+		_aptpkgm
+		;;
+	"fedora"|"Fedora")
+		_dnfpkgm
 		;;
 	*)
 esac

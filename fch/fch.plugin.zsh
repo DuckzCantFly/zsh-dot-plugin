@@ -56,7 +56,7 @@ function _fch-lines(){
 # check alt-logo.txt for more logos and logos and line versions
 function _fch-output-fch(){
 	case "${sys_distro_id}" in
-		"Arch")
+		"Arch"|"arch")
 			cat <<EOF
 ${c0}   /\\    ${l1}
 ${c0}  /\` \\   ${l2}
@@ -96,6 +96,14 @@ ${c0}\\\\// / ${l3}
 ${c0} <o->  ${l4}
 EOF
 			;;
+		"fedora")
+	cat << EOF
+${c0}   /==\\ ${l1}
+${c0} /-||   ${l2}
+${c0}|| ||=) ${l3}
+${c0} \\==/   ${l4}
+EOF
+			;;
 		*)
 			cat <<EOF
 ${c0}   .-.   ${l1}
@@ -113,11 +121,14 @@ function _fch-packages(){
 		"Ubuntu"|"Debian")
 			echo "$(dpkg -l | grep -c '^ii')"
 			;;
-		"ManjaroLinux"|"Arch")
+		"ManjaroLinux"|"Arch"|"arch")
 			echo "$(\pacman -Q | wc -l)"
 			;;
 		"SteamOS")
 			echo "$(flatpak list --app | wc -l)"
+			;;
+		"fedora")
+			echo "$(rpm -qa | wc -l)"
 			;;
 		*)
 			echo "?"
@@ -126,14 +137,15 @@ function _fch-packages(){
 
 # Grab Distro ID
 function _fch-sys-distro-id(){
-	if [ -n "${SYS_DISTRO_ID}" ] ; then
-		sys_distro_id=${SYS_DISTRO_ID}
+	if [ -n "${LOCAL_SYS_DISTRO_ID}" ] ; then
+		sys_distro_id=${LOCAL_SYS_DISTRO_ID}
 		return
 	elif [ -x "$(command -v lsb_release)" ] ; then
-		sys_distro_id="$(lsb_release -a | grep -e "Distributor ID:" | cut -d ':' -f2 | tr -d '[:space:]')"
+		sys_distro_id="$(lsb_release -a | grep -e "Distributor ID " | cut -d ':' -f2 | tr -d '[:space:]')"
 		return
-	elif if ls -U /etc/*release 1>& /dev/null 2>&1 ;then
-			sys_distro_id="$(cat /etc/*release | grep DISTRIB_ID | cut -d '=' -f2 | tr -d '[:space:]')"
+	elif 
+		if ls -U /etc/*release 1>& /dev/null 2>&1 ;then
+			sys_distro_id="$(cat /etc/*release | grep -m 1 "ID=" | cut -d '=' -f2 | tr -d '[:space:]')"
 		else 
 			[ 1 = 2 ]
 		fi ; [ -n "${sys_distro_id}" ]
