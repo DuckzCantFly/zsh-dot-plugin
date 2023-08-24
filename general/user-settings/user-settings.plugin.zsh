@@ -10,10 +10,17 @@ case "${USERNAME}" in
 		export QT_IM_MODULE=ibus
 		;;
 	"dwm")
-		# Ibus
-		export GTK_IM_MODULE=ibus
-		export XMODIFIERS=@im=ibus
-		export QT_IM_MODULE=ibus
+		# ibus
+		export gtk_im_module=ibus
+		export xmodifiers=@im=ibus
+		export qt_im_module=ibus
+		;;
+	"chandler")
+		autotmux
+		# ibus
+		export gtk_im_module=ibus
+		export xmodifiers=@im=ibus
+		export qt_im_module=ibus
 		;;
 	*)
 esac
