@@ -45,23 +45,26 @@ _pacmanpkgm(){
 	if [ -x "$(command -v paru)" ] ; then
 		alias p="paru" \
 					pkm="paru"
+					pkmsu="paru"
 	elif [ -x "$(command -v yay)" ] ; then
 		alias p="yay" \
 					pkm="yay"
+					pkmsu="yay"
 	else
 		alias p="pacman -Ss" \
 					pkm="pacman"
+					pkmsu="sudo pacman"
 	fi
 
 	alias \
-		pR="pkm -Rns"\
-		pI="pkm -S --noconfirm"\
-		pIN="pkm -S --noconfirm --needed"\
+		pR="pkmsu -Rns"\
+		pI="pkmsu -S --noconfirm"\
+		pIN="pkmsu -S --noconfirm --needed"\
 		pS="pkm -Ss"\
 		pL="pkm -Qe --info | grep -E 'Name            :|Description     :|Provides        :|Depends On      :|Required By     :|^$' | vim"\
 		pLA="pkm -Q --info | vim"\
-		pC="pkm -c"\
-		pU="pkm -Syu --noconfirm"\
+		pC="pkmsu -c"\
+		pU="pkmsu -Syu --noconfirm"\
 
 	eval '
 		### Open URL "for Arch package"
