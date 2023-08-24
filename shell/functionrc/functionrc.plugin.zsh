@@ -31,11 +31,11 @@ _dnfpkgm(){
 
 	alias \
 		p='pkm search' \
-		pI='pkm dnf install' \
+		pI='sudo pkm install' \
 		pIF='pkm info' \
 		pL='pkm list | vim' \
 		pLA='pkm info | vim' \
-		pR='pkm dnf remove' \
+		pR='sudo pkm remove' \
 		pC='sudo pkm autoremove' \
 		pU='sudo pkm update' 
 }
