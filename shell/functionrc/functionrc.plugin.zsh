@@ -25,6 +25,9 @@ _aptpkgm(){
 _dnfpkgm(){
 	if [ -x "$(command -v dnf)" ] ; then
 		alias pkm="dnf"
+		if ! [ -x "$(command -v yum)" ] ; then
+			alias yum="dnf"
+		fi
 	else
 		alias pkm="yum"
 	fi
@@ -44,15 +47,15 @@ _dnfpkgm(){
 _pacmanpkgm(){
 	if [ -x "$(command -v paru)" ] ; then
 		alias p="paru" \
-					pkm="paru"
+					pkm="paru" \
 					pkmsu="paru"
 	elif [ -x "$(command -v yay)" ] ; then
 		alias p="yay" \
-					pkm="yay"
+					pkm="yay" \
 					pkmsu="yay"
 	else
 		alias p="pacman -Ss" \
-					pkm="pacman"
+					pkm="pacman" \
 					pkmsu="sudo pacman"
 	fi
 
@@ -63,7 +66,7 @@ _pacmanpkgm(){
 		pS="pkm -Ss"\
 		pL="pkm -Qe --info | grep -E 'Name            :|Description     :|Provides        :|Depends On      :|Required By     :|^$' | vim"\
 		pLA="pkm -Q --info | vim"\
-		pC="pkmsu -c"\
+		pC="pkmsu -Yc"\
 		pU="pkmsu -Syu --noconfirm"\
 
 	eval '
@@ -142,6 +145,6 @@ webgrb(){ local ARGS="$(xsel)" ; ${BROWSER} "{$ARGS}" }
 rmex(){
 	local file
 	for file in *$1*; do
-			mv -- "${file}" "${file%%$1*}"
+		mv -- "${file}" "${file%%$1*}"
 	done
 }
