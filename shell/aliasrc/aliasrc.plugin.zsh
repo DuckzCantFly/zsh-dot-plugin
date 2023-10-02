@@ -23,15 +23,15 @@ alias \
 
 # LS / EXA
 if [ -x "$(command -v exa)" ] ; then
-	alias ls="exa --icons -hn --color=auto --group-directories-first"
+	alias ls="exa --icons -h --color=auto --group-directories-first"
 else
 	alias ls="ls -h --color=auto --group-directories-first"
 fi
 alias \
-	la="ls -lah" \
-	ll="ls -lh" \
+	la="ls -la" \
+	ll="ls -lg" \
 	lg="la | grep" \
-	lsr="ls -lah --tree --color=always | less" \
+	lsr="ls -la --tree --color=always | less" \
 
 # Shorten up Commands
 alias \
