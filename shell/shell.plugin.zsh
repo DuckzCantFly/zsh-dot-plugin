@@ -2,6 +2,7 @@
 # Load Plugins
 plugins=(
 	zsh-dot-plugin/shell/functionrc
+	zsh-dot-plugin/shell/user-settings
 	zsh-dot-plugin/shell/optrc
 	zsh-dot-plugin/shell/aliasrc
 	zsh-dot-plugin/shell/shortcutrc

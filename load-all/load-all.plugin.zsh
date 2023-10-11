@@ -15,12 +15,11 @@ plugins=(
 	zsh-dot-plugin/general/tab-complete
 	zsh-dot-plugin/general/vi-mode
 	zsh-dot-plugin/general/control-keys
-	zsh-dot-plugin/general/user-settings
 	zsh-dot-plugin/general/correction
 	## Plugins Install & Load
 	zsh-dot-plugin/plugins
-	## Plugin Config
-	zsh-dot-plugin/plugins/plugin-config
 	## Plugins Install & Load
 	zsh-dot-plugin/plugins/plugin-load
+	## Plugin Config
+	zsh-dot-plugin/plugins/plugin-config
 ) ; plugin-source ${plugins}
