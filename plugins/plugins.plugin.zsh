@@ -8,8 +8,8 @@ repos=(
 	zsh-users/zsh-completions
 	zsh-users/zsh-history-substring-search
 	zsh-users/zsh-autosuggestions
-	zdharma-continuum/fast-syntax-highlighting
 	hlissner/zsh-autopair
-	djui/alias-tips
+	MichaelAquilina/zsh-you-should-use 
 	kutsan/zsh-system-clipboard
+	zdharma-continuum/fast-syntax-highlighting
 ) ; plugin-clone ${repos}
