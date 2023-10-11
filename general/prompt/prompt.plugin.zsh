@@ -6,13 +6,13 @@ function _prompt_precmd {
 
 	_prompt_colors
 
-	local user_prompt="${yellow}%n"															# User
-	local hostname_prompt="${green}@${blue}%M"									# Hostname
-	local cwd_prompt="${magenta}%(5~|%-1~/.../%3~|%4~)"					# Current working directory (truncated)
-	local job_prompt="%(1j.[${yellow}%j${red}].)"								# Job information
-	local current_time_prompt="${white}%*"											# Current time
-	local newline_prompt=$'\n'																	# New line so information is separated from input text
-	local prompt_symbol="${red}[${reset_color}${white}%(#.#.$)" # Prompt symbol with root status
+	local user_prompt="${yellow}%n"															 # User
+	local hostname_prompt="${green}@${blue}%M"									 # Hostname
+	local cwd_prompt="${magenta}%(5~|%-1~/.../%3~|%4~)"					 # Current working directory (truncated)
+	local job_prompt="%(1j.[${yellow}%j${red}].)"								 # Job information
+	local current_time_prompt="${white}%*"											 # Current time
+	local newline_prompt=$'\n'																	 # New line so information is separated from input text
+	local prompt_symbol="${red}[${reset_color}${white}%(#.#.$) " # Prompt symbol with root status
 
 	# Elapsed time
 	if [ "${PROMPTTIMER}" ]; then
