@@ -30,6 +30,13 @@ fi
 # fch
 if [ -n "$(command -v fch)" ] ; then
 	alias neo="clear && fch"
+	if 
+		[ -z "$(command -v tmux)" ] \
+		|| [ -z "$TMUX"  ] \
+		|| [ "$(tmux list-panes | wc -l)" -eq "1" ]
+	then
+		fch
+	fi
 fi
 
 # Fastfetch
@@ -71,7 +78,11 @@ fi
 
 # Nvim
 if [ -x "$(command -v nvim)" ] ; then
-	alias vim="nvim" vi="nvim" vimdiff="nvim -d" magit="nvim -c MagitOnly"
+	alias \
+		vim="nvim" \
+		vi="nvim" \
+		vimdiff="nvim -d" \
+		magit="nvim -c MagitOnly"
 fi
 
 # MPC
@@ -99,6 +110,7 @@ fi
 # BAT
 if [ -x "$(command -v bat)" ] ; then
 	alias bat="bat -Ppf"
+	alias cat="bat -Ppf"
 fi
 
 # Prettyping
