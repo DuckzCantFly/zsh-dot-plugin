@@ -105,8 +105,8 @@ lim(){ fold -s -w $(tput cols) ${@} | less }
 
 # Auto Start Tmux on Launch
 autotmux(){
-	local tmuxconfig="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
-	if [ -z "$TMUX"  ] ; then
+	if [ -n "$(command -v tmux)" ] && [ -z "$TMUX"  ] ; then
+		local tmuxconfig="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 		{
 			tmux -f ${tmuxconfig} attach \
 			|| exec tmux -f ${tmuxconfig} new-session \
