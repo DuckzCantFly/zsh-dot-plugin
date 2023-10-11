@@ -8,7 +8,7 @@ fi
 # LF
 if [ -x "$(command -v lf)" ] ; then
 	# Change lf to lf uberzug
-	if [ -x "$(command -v lfub)" ] ; then
+	if [ -x "$(command -v uberzug)" ] && [ -x "$(command -v lfub)" ]; then
 		alias lf="lfub"
 	fi
 	cf(){
@@ -18,7 +18,9 @@ if [ -x "$(command -v lf)" ] ; then
 		lf -last-dir-path="$tmp" "$@"
 		if [ -f "$tmp" ]; then
 				dir="$(cat "$tmp")"
-				[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+				if [ -d "$dir" ] && [ "$dir" != "$(pwd)" ]; then
+					cd "$dir"
+				fi
 		fi
 	}
 else
