@@ -118,8 +118,10 @@ autotmux(){
 # Copy File's Path
 cpfp(){
 	if [ -n "$1" ] ; then
-		local CPFILE="$@" \
-			&& readlink -f "$CPFILE" | tr -d '\n' | xclip -selection clipboard
+		local CPFILE="$@"
+		readlink -f "$CPFILE" \
+			| tr -d '\n' \
+			| xclip -selection clipboard
 	fi
 }
 
