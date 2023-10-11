@@ -1,10 +1,5 @@
 ### Plugin Config ###
 
-# Run Neofetch
-if [ -n "$(command -v fch)" ] ; then
-	fch
-fi
-
 # Cod (--help autocomplete)
 if [ -x "$(command -v cod)" ] ; then
 	source <(cod init $$ zsh)
@@ -25,10 +20,22 @@ if [ -d ${ZPLUGINDIR}/zsh-autosuggestions ]; then
 	# bindkey '<M-Space>' autosuggest-accept
 fi
 
-# Alias-tips
-if [ -d ${ZPLUGINDIR}/alias-tips ]; then
-	export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Tip: "  # Customize the Output
-	export ZSH_PLUGINS_ALIAS_TIPS_EXPAND=1      # Command Expansion
-	# export ZSH_PLUGINS_ALIAS_TIPS_FORCE=1       # Force Alias Use
-	export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES=""   # Exclude some Aliases
+# You-Should-Use 
+if [ -d ${ZPLUGINDIR}/zsh-you-should-use ]; then
+	export YSU_MESSAGE_POSITION="after"	# Display after output 
+	# export YSU_MODE=ALL									# Display all matches, default: BESTMATCH
+	# export YSU_HARDCORE=1								# Force use of aliase
+
+	# YSU msg componets
+	start="\e[0m${fg_bold[red]}]\e[0m"
+	error="${fg[red]}%command\e[0m"
+	fix="${fg_bold[green]}%alias\e[0m"
+	arrow="->"
+
+	# YSU msg
+	export YSU_MESSAGE_FORMAT="${start} ${error} ${arrow} ${fix}"
+
+	export YSU_IGNORED_ALIASES=(
+		nvim
+	) # Disaable on commands
 fi
