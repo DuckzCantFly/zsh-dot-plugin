@@ -1,5 +1,5 @@
-# "ufetch-omni", a fork of https://gitlab.com/jschx/ufetch,
-# tiny system info for arch, debian, ubuntu, manjaro, & gneric
+# "fch", a fork of https://gitlab.com/jschx/ufetch,
+# tiny system info for arch, debian, ubuntu, fedora, manjaro, & generic
 
 # Copyright (c) 2015 J Schillinger
 
@@ -25,15 +25,18 @@
 function _fch-info(){
 	# user is already defined
 	host="$(cat /etc/hostname)"
-	kernel="$(uname -sr | sed "s/Linux //g")"
-	uptime="$(uptime -p | sed 's/up //;s/ minute./m/g;s/ hour.*, /h/g;s/ day.*, /d/g;s/ year.*, /y/g')"
+	kernel="$(uname -sr | cut -d ' ' -f2-)"
+	uptime="$(
+	  uptime -p \
+	  | sed 's/up //;s/ minute./m/g;s/ hour.*, /h/g;s/ day.*, /d/g;s/ year.*, /y/g'
+	)"
 	shell="$(basename "${SHELL}")"
 	packages="$(_fch-packages)"
 }
 
-# Fech formating & colors
+# Fech formatting & colors
 function _fch-formating(){
-	## You can change these but remember to add formating as local varables!
+	## You can change these but remember to add formatting as local variables!
 	lc="${reset}${bold}${bblack}" # labels
 	nc="${reset}${bold}${blue}"   # user and hostname
 	ic="${reset}${byellow}"       # info
@@ -45,7 +48,7 @@ function _fch-formating(){
 
 # Fch Lines
 function _fch-lines(){
-	## You can change these but remember to add formating as local varables!
+	## You can change these but remember to add formatting as local variables!
 	l1="${lc}|${nc}${kernel}"
 	l2="${lc}|${ic}${uptime} ${lc}|${ic}${packages} ${lc}|${ic}${ui} ${lc}|${ic}${shell}"
 	l3="${blocknormal}"
@@ -96,7 +99,7 @@ ${c0}\\\\// / ${l3}
 ${c0} <o->  ${l4}
 EOF
 			;;
-		"fedora")
+		"fedora"|"Fedora")
 	cat << EOF
 ${c0}   /==\\ ${l1}
 ${c0} /-||   ${l2}
@@ -127,8 +130,8 @@ function _fch-packages(){
 		"SteamOS")
 			echo "$(flatpak list --app | wc -l)"
 			;;
-		"fedora")
-			echo "$(rpm -qa | wc -l)"
+		"fedora"|"Fedora")
+			echo "$(rpm -qa --nodigest --nosignature | wc -l)"
 			;;
 		*)
 			echo "?"
@@ -141,18 +144,32 @@ function _fch-sys-distro-id(){
 		sys_distro_id=${LOCAL_SYS_DISTRO_ID}
 		return
 	elif [ -x "$(command -v lsb_release)" ] ; then
-		sys_distro_id="$(lsb_release -a | grep -e "Distributor ID " | cut -d ':' -f2 | tr -d '[:space:]')"
+		sys_distro_id="$(
+			lsb_release -a \
+			| grep -i -e "Distributor ID:" \
+			| cut -d ':' -f2 \
+			| tr -d '[:space:]'
+		)"
 		return
 	elif 
 		if ls -U /etc/*release 1>& /dev/null 2>&1 ;then
-			sys_distro_id="$(cat /etc/*release | grep -m 1 "ID=" | cut -d '=' -f2 | tr -d '[:space:]')"
+			sys_distro_id="$(
+				cat /etc/*release \
+				| grep -m 1 "ID=" \
+				| cut -d '=' -f2 \
+				| tr -d '[:space:]'
+			)"
 		else 
 			[ 1 = 2 ]
 		fi ; [ -n "${sys_distro_id}" ]
 	then ; return
 	elif 
 		if ls -U /etc/issue* 1>& /dev/null ; then
-			sys_distro_id="$(cat /etc/issue* | cut -d ' ' -f1 | tr -d '[:space:]')"
+			sys_distro_id="$(
+				cat /etc/issue* \
+				| cut -d ' ' -f1 \
+				| tr -d '[:space:]'
+			)"
 		else
 			[ 1 = 2 ]
 		fi ; [ -n "${sys_distro_id}" ]
