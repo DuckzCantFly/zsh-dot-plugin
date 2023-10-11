@@ -21,17 +21,25 @@ alias \
 	diff="diff --color=auto" \
 	ip="ip -color=auto"
 
-# LS / EXA
-if [ -x "$(command -v exa)" ] ; then
-	alias ls="exa --icons -h --color=auto --group-directories-first"
+# LS / EXA / eza
+if [ -x "$(command -v eza)" ] ; then
+	alias \
+		eza="eza --icons -hg --color=auto --group-directories-first" \
+		exa="eza" \
+		ls="eza"
+elif [ -x "$(command -v exa)" ] ; then
+	alias \
+		exa="exa --icons -hg --color=auto --group-directories-first" \
+		ls="exa"
 else
-	alias ls="ls -h --color=auto --group-directories-first"
+	alias ls="ls -hg --color=auto --group-directories-first"
 fi
+
 alias \
 	la="ls -la" \
-	ll="ls -lg" \
+	ll="ls -l" \
 	lg="la | grep" \
-	lsr="ls -la --tree --color=always | less" \
+	lsr="ls -la --tree --color=always | less"
 
 # Shorten up Commands
 alias \
